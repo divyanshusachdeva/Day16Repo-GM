@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+
+
+  
+<!-- This is a constructor based injection -->
+<bean name="cust" class="com.graymatter.beans.Customer" autowire="constructor" scope="prototype">
+	<property name="name" value="Divyanshu"></property>
+	<property name="id" value="123"></property>
+	<property name="mobile" value="9876543210"></property>
+	<property name="order" ref="order1"></property>
+</bean>
+
+<!-- This is a setter based injection -->
+<!--<context:property-placeholder location="classpath:data.properties"></context:property-placeholder>
+<bean name="cust1" class="com.graymatter.beans.Customer" autowire="constructor">
+	<property name="name" value="${Customer.name}"></property>
+	<property name="id" value="${Customer.id}"></property>
+	<property name="mobile" value="${Customer.mobile}"></property>
+	<property name="ord" ref="order"></property>
+</bean> -->
+
+<bean name="order1" class="com.graymatter.beans.Order">
+	<property name="orderId" value="43"></property>
+	<property name="itemList">
+		<list>
+			<value>item1</value>
+			<value>item2</value>
+			<value>item3</value>
+			<value>item4</value>
+		</list>
+	</property>
+</bean>
+
+</beans>
